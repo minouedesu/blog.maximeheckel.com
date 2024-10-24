@@ -144,7 +144,7 @@ const IndexPage = (props: Props) => {
         </Grid.Item> */}
         <Grid.Item as="section" col={2}>
           <Flex alignItems="start" direction="column" gap="5">
-            <H2>Featured</H2>
+            <H2>特徴</H2>
             <Grid
               as="ul"
               css={{
@@ -251,7 +251,7 @@ const IndexPage = (props: Props) => {
         </Grid.Item>
         <Grid.Item col={2} as="section">
           <Flex alignItems="start" direction="column" gap="5">
-            <H2>All articles</H2>
+            <H2>全ての記事</H2>
             <Grid
               as="ul"
               css={{
@@ -322,7 +322,7 @@ const IndexPage = (props: Props) => {
                 );
               })}
             </Grid>
-            <Card css={{ marginBottom: 'var(--space-9)', width: '100%' }}>
+            {/* <Card css={{ marginBottom: 'var(--space-9)', width: '100%' }}>
               <Card.Body
                 alignItems="start"
                 as={Flex}
@@ -334,7 +334,7 @@ const IndexPage = (props: Props) => {
                   Click here to find out how you can help.
                 </Anchor>
               </Card.Body>
-            </Card>
+            </Card> */}
           </Flex>
         </Grid.Item>
       </Grid>
