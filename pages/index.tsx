@@ -136,12 +136,12 @@ const IndexPage = (props: Props) => {
             </Flex>
           </Flex>
         </Grid.Item>
-        <Grid.Item as="section" col={2}>
+        {/* <Grid.Item as="section" col={2}>
           <Flex alignItems="start" direction="column" gap="5">
             <H2>Newsletter</H2>
             <NewsletterForm large />
           </Flex>
-        </Grid.Item>
+        </Grid.Item> */}
         <Grid.Item as="section" col={2}>
           <Flex alignItems="start" direction="column" gap="5">
             <H2>Featured</H2>
