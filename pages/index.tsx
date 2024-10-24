@@ -83,7 +83,7 @@ const IndexPage = (props: Props) => {
         <Grid.Item col={2}>
           <Flex alignItems="start" direction="column" gap="5">
             <H1>
-              こんにちは <WavingHand /> 私はMasahiroです。{' '}
+              こんにちは <WavingHand /> 私はMasahiroで、これは私のブログです。{' '}
               <Text
                 css={{
                   lineHeight: 'unset',
