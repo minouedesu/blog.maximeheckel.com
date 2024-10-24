@@ -42,7 +42,7 @@ const Footer = () => (
             <Text size={1}>
               <Grid>
                 <Link href="/" legacyBehavior passHref>
-                  <Anchor discreet>Home</Anchor>
+                  <Anchor discreet>ホーム</Anchor>
                 </Link>
                 <Link href="/design" legacyBehavior passHref>
                   <Anchor discreet>Design</Anchor>
@@ -76,7 +76,7 @@ const Footer = () => (
                   discreet
                   href="https://www.buymeacoffee.com/maximeheckel"
                 >
-                  Buy me a coffee
+                  コーヒーだ
                 </Anchor>
               </Grid>
             </Text>
