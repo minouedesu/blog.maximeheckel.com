@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import {
   styled,
-  Anchor,
+  // Anchor,
   Box,
   Button,
   Card,
