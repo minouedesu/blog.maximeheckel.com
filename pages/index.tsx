@@ -93,9 +93,7 @@ const IndexPage = (props: Props) => {
                 size="7"
                 weight="4"
               >
-                Here, I share through my writing my experience as a frontend
-                engineer and everything I'm learning about on React, Shaders,
-                React Three Fiber, Framer Motion, and more.
+                このブログでは、フロントエンドエンジニアとしての経験や、React、シェーダー、React Three Fiber、Framer Motionなど、日々学んでいることについて発信しています。
               </Text>
             </H1>
             <Flex
