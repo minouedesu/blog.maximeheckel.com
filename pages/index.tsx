@@ -24,7 +24,7 @@ import { Post } from 'types/post';
 import React from 'react';
 import { templateColumnsMedium } from 'styles/grid';
 
-const NewsletterForm = dynamic(() => import('@core/components/NewsletterForm'));
+// const NewsletterForm = dynamic(() => import('@core/components/NewsletterForm'));
 
 interface Props {
   posts: Post[];
