@@ -45,7 +45,7 @@ const Footer = () => (
                   <Anchor discreet>ホーム</Anchor>
                 </Link>
                 <Link href="/design" legacyBehavior passHref>
-                  <Anchor discreet>Design</Anchor>
+                  <Anchor discreet>デザイン</Anchor>
                 </Link>
                 <Link href="/rss.xml" legacyBehavior passHref>
                   <Anchor discreet>RSS</Anchor>
@@ -58,7 +58,7 @@ const Footer = () => (
               <Grid>
                 <Anchor
                   discreet
-                  href="https://twitter.com/MaximeHeckel"
+                  href=""
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -66,7 +66,7 @@ const Footer = () => (
                 </Anchor>
                 <Anchor
                   discreet
-                  href="https://github.com/MaximeHeckel"
+                  href="https://github.com/minouedesu"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -74,9 +74,9 @@ const Footer = () => (
                 </Anchor>
                 <Anchor
                   discreet
-                  href="https://www.buymeacoffee.com/maximeheckel"
+                  href=""
                 >
-                  コーヒーだ
+                  コーヒーを奢る
                 </Anchor>
               </Grid>
             </Text>
@@ -86,25 +86,25 @@ const Footer = () => (
               <Grid>
                 <Anchor
                   discreet
-                  href="https://maximeheckel.com"
+                  href=""
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Portfolio
+                  ポートフォリオ
                 </Anchor>
                 <Anchor
                   discreet
                   href="https://www.figma.com/file/uvkUCtxXs7Vvmj58sHh0TE/Maxime's-Public-Roadmap?node-id=0%3A1"
                 >
-                  Roadmap
+                  ロードマップ
                 </Anchor>
                 <Anchor
                   discreet
-                  href="https://buttondown.email/MaximeHeckel/archive/"
+                  href=""
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Newsletter
+                  ニュースレター
                 </Anchor>
               </Grid>
             </Text>
