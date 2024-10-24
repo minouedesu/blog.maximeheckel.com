@@ -1,0 +1,140 @@
+---
+title: 'MDXランダムメモ'
+subtitle: A deep dive into Framer Motion's propagation, exit transitions and layout animation patterns through curated examples and interactive playgrounds.
+date: '2024-10-15T08:00:00.000Z'
+updated: '2024-10-15T08:00:00.000Z'
+categories: []
+keywords:
+  [
+    'framer motion',
+    'animation',
+    'frontend',
+    'ui',
+    'ux',
+    'design',
+    'transition',
+    'react',
+    'layout',
+  ]
+slug: advanced-animation-patterns-with-framer-motion
+type: 'blogPost'
+featured: false
+---
+
+## 記法を調べてまとめてみる
+
+**見出し**
+<Callout variant="info">
+\# レベル1<br />
+\## レベル2<br />
+\### レベル3<br />
+\#### レベル4<br />
+\##### レベル5<br />
+\###### レベル6
+
+# レベル1
+## レベル2
+### レベル3
+#### レベル4
+##### レベル5
+###### レベル6
+</Callout>
+
+**強調**
+
+<Callout variant="info">
+\*\*太字\*\*<br />
+**太字**<br /><br />
+
+\*イタリック\*<br />
+*イタリック*<br /><br />
+
+\*イタリック太字\*<br />
+***イタリック太字***
+</Callout>
+
+**リスト**
+<Callout variant="info">
+\- 箇条書き1<br />
+\- 箇条書き2<br />
+ &nbsp; &nbsp;\- ネストした箇条書き1<br />
+ &nbsp; &nbsp;\- ネストした箇条書き2<br />
+
+- 箇条書き1
+- 箇条書き2
+  - ネストした箇条書き1
+  - ネストした箇条書き1
+
+1\. 番号付きリスト1<br />
+2\. 番号付きリスト2
+
+1. 番号付きリスト1
+2. 番号付きリスト2
+
+</Callout>
+
+**リンク**
+<Callout variant="info">
+\[リンクテキスト](https://example.com)<br />
+[リンクテキスト](https://example.com)
+</Callout>
+
+**画像**
+<Callout variant="info">
+!\[代替テキスト](https://placehold.jp/150x150.png)<br />
+![](https://placehold.jp/150x150.png)
+</Callout>
+
+**コードブロック**
+<Callout variant="info">
+\`インラインコード`
+
+\```javascript<br />
+// コードブロック<br />
+console.log('Hello, MDX!');<br />
+\```
+
+`インラインコード`
+
+```javascript
+// コードブロック
+console.log('Hello, MDX!');
+```
+</Callout>
+
+**引用**
+<Callout variant="info">
+\> これは引用です。
+> これは引用です。
+</Callout>
+
+
+## 実際に書いてみて思ったこと
+<Callout variant="danger">
+**Calloutなどのカスタムコンポーネントはどこで定義されているのか？**<br />
+<span style={{ color: 'blue' }}>→おそらく、/core/components/MDX/Widgetsのどこかに定義されている。<br />簡単に場所を特定できる方法ないかな〜</span><br /><br />
+
+**見出しのレベル2のほうが大きいのはなぜ？**<br />
+<span style={{ color: 'blue' }}>→おそらくカスタムCSSによる影響？</span><br /><br />
+
+**そういえばqiitaで質問する時マークダウン記法での書き方だった気がする**<br />
+
+**MDXのスタイルは自分で定義しないとダメなの？**<br />
+<span style={{ color: 'blue' }}>→Next.jsプロジェクトではstyles/global.cssに定義されている。<br />スタイルを自分で作らない場合はブラウザのデフォルトのスタイルが適応される</span><br /><br />
+
+**public/static/imagesに画像を置いて、パスを指定して表示させようとしても表示できない**<br />
+<span style={{ color: 'blue' }}>→MDXやMarkdownファイル内で画像を参照する場合、/publicを含めないのが一般的</span><br /><br />
+
+**エディタが真っ白で見づらい**<br />
+<span style={{ color: 'blue' }}>→いい感じのプラグインを探してみる。</span>
+
+![](/static/images/editor-screenshot.png)
+</Callout>
+
+
+
+
+
+
+- [Animation Presence Widget](https://github.com/MaximeHeckel/blog.maximeheckel.com/blob/3c8291d96bd9069d22bdcf26436abc75b7386a04/core/components/MDX/custom/Widgets/FramerMotionAnimatePresence.tsx)
+- [Shared Animation Layout](https://github.com/MaximeHeckel/blog.maximeheckel.com/blob/b5429b983bdc3cedd24a021f6f2fb932df57514e/core/components/MDX/custom/Widgets/FramerMotionAnimationLayout.tsx)
