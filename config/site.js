@@ -31,7 +31,7 @@ module.exports = {
   author: 'Masahiro', // Author for schemaORGJSONLD
   themeColor: '#000000',
   backgroundColor: '#ffffff',
-  // twitter: '@MaximeHeckel', // Twitter Username
-  // twitterDesc:
-  //   'Maxime Heckel is a lead frontend engineer and space enthusiast currently based in New York.',
+  twitter: '@MaximeHeckel', // Twitter Username
+  twitterDesc:
+    'Maxime Heckel is a lead frontend engineer and space enthusiast currently based in New York.',
 };
