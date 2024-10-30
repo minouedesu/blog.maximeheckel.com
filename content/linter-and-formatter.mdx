@@ -1,0 +1,195 @@
+---
+title: 'リンター・フォーマッターを理解する'
+subtitle: A deep dive into Framer Motion's propagation, exit transitions and layout animation patterns through curated examples and interactive playgrounds.
+date: '2024-10-30T08:00:00.000Z'
+updated: '2024-10-30T08:00:00.000Z'
+categories: []
+keywords:
+  [
+    'framer motion',
+    'animation',
+    'frontend',
+    'ui',
+    'ux',
+    'design',
+    'transition',
+    'react',
+    'layout',
+  ]
+slug: linter-and-formatter
+type: 'blogPost'
+featured: false
+---
+
+リンターとフォーマッターについて理解を深めていくために、それぞれの役割や使い方を調べてまとめてみました。
+
+## リンターとフォーマッターとは？
+**リンターとは？**<br />
+リンターとはコードの品質チェックを行うツールで、非推奨の構文の使用や命名規則違反などを検知してくれます。
+
+**フォーマッターとは？**<br />
+コードの体裁を整えるツールです。例えば、インテンド、改行、括弧の位置などを自動修正してくれます。
+
+主な役割の違いとしてはリンターは**報告**をしてくれるのに対し、フォーマッターはコードの**修正**をしてくれます。
+
+## リンターやフォーマッターを使うメリットって？
+「リンターやフォーマッターを導入すると、コーディングのやり方に制約が加わってしまい煩わしくない？」と思ったりしますが、以下のようなメリットがあります。
+
+**1.コードの品質向上**<br />
+セキュリティ上の脆弱性を検出したり、ベストプラクティスに沿ったコーディングを促進したりと、一貫性が保たれることで保守性が高い品質の高いコードを作成できます。
+
+**2.チーム開発の効率化**<br />
+人のコードを読むのって大変ですよね、、笑<br />
+僕は自分のコードですら2、3日経つと「このコードはどういう処理をしているんだっけ？」となってしまうのに、他人のコードを読むとなるとその時間がさらに倍以上かかってしまいます。<br />
+このような状況は多くの開発者が経験する共通の課題だともいますが、特に大規模プロジェクトでチームメンバーそれぞれが独自のコーディングスタイルを持っていると、コードの解読に余計な時間がかかってしまい本来の開発に時間を割くことができなくなってしまいます。<br />
+そこでリンターやフォーマッターを導入することで、コーディングスタイルが統一されることでコードリーディングの時間を短縮できます。
+
+## どうやって導入するの？
+メリットを理解したところで、じゃあ実際にリンターやフォーマッターを導入するにはどうしたらいいのか、その方法を調べてみました。
+
+**リンターとフォーマッターの選定**<br />
+リンターやフォーマッターもいくつかの種類がありどれを使おうか迷ったので、フロントエンド開発でよく使われている構成を調べてみると、以下の構成がフロントエンド開発でデファクトスタンダードとなっているようですので、今回はこの構成を導入してみることにしました。<br />
+・リンター　**ESLint**<br />
+・フォーマッター　**Prettier**
+
+**導入手順**<br />
+以下のclaude3.5に教えてもらった以下の導入手順に沿って最小構成で導入してみます。
+
+**1. 最小構成のセットアップ手順**
+```bash
+# 1. プロジェクトの作成と移動
+mkdir my-frontend-project
+cd my-frontend-project
+
+# 2. プロジェクトの初期化
+npm init -y
+
+# 3. 必要な最小限のパッケージをインストール
+npm install --save-dev eslint prettier eslint-config-prettier
+```
+
+**2. 設定ファイルの作成**<br />
+
+.eslintrc.json
+```json
+{
+  "extends": [
+    "eslint:recommended",
+    "prettier"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "no-unused-vars": "warn",
+    "no-console": "warn"
+  }
+}
+```
+
+.eslintrc.json
+```json
+{
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "printWidth": 80
+}
+```
+
+**3. package.json にスクリプトを追加**<br />
+// .eslintrc.json
+```json
+{
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"**/*.{js,jsx,json}\""
+  }
+}
+```
+
+これで最小構成でリンターとフォーマッターを導入することができました！
+
+## 実際に使ってみる
+初期設定が完了しているので、いよいよ実際に使ってみます。
+今回は以下のsample.jsというファイルを作成して、そこにわざと不完全なコードを書いてみます。
+
+**動作確認用ファイルの作成**
+
+```bash
+# srcディレクトリとテストファイル作成
+mkdir src
+touch src/example.js
+```
+
+example.js
+```javascript
+// わざと整形されていない状態で書く
+var message="Hello,    World!"
+console.log(message)
+
+function test(  ){
+    return    true
+}
+```
+
+**リンターの実行**
+```bash
+npm run lint
+```
+
+おお！すると以下のようにちゃんとエラーが出てきました！
+
+```bash
+MacBook-Pro:my-frontend-project inouemasahiro$ npm run lint
+
+> my-frontend-project@1.0.0 lint
+> eslint .
+
+
+/Users/inouemasahiro/Desktop/my-frontend-project/src/example.js
+  3:1   warning  Unexpected console statement      no-console
+  5:10  warning  'test' is defined but never used  no-unused-vars
+
+✖ 2 problems (0 errors, 2 warnings)
+```
+
+警告文に沿って修正してみると以下のようにちゃんと警告も消えてますね！
+
+```bash
+MacBook-Pro:my-frontend-project inouemasahiro$ npm run lint
+
+> my-frontend-project@1.0.0 lint
+> eslint .
+```
+
+**フォーマッターの実行**
+```bash
+npm run format
+```
+
+続いてフォーマッターを実行すると、
+example.js
+```javascript
+// わざと整形されていない状態で書く
+var message = 'Hello,       World!';
+console.log(message);
+
+function test() {
+  //ここのスペースはちゃんと整形されている
+  return true;
+}
+
+```
+Hello, Worldの間が詰められていないので
+「あれ、、フォーマッター動いていない？」と思ったのですが、returnの前後のスペースがちゃんと整形されていることは確認できました。<br />
+hello worldは文字列リテラルなので、その間のスペースは整形しなくてもいいという設定になっているのですかね🤔<br />
+ここら辺の規則も設定できそうなので、今後色々調べながら自分好みの設定にしてみたいと思います。
+
+
+
+- [Animation Presence Widget](https://github.com/MaximeHeckel/blog.maximeheckel.com/blob/3c8291d96bd9069d22bdcf26436abc75b7386a04/core/components/MDX/custom/Widgets/FramerMotionAnimatePresence.tsx)
+- [Shared Animation Layout](https://github.com/MaximeHeckel/blog.maximeheckel.com/blob/b5429b983bdc3cedd24a021f6f2fb932df57514e/core/components/MDX/custom/Widgets/FramerMotionAnimationLayout.tsx)
